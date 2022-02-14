@@ -1,0 +1,24 @@
+Author: Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>
+
+--- kubectx-0.9.4.orig/cmd/kubectx/version.go
++++ kubectx-0.9.4/cmd/kubectx/version.go
+@@ -8,7 +8,7 @@ import (
+ )
+ 
+ var (
+-	version = "v0.0.0+unknown" // populated by goreleaser
++	version = "0.9.4" // populated by goreleaser
+ )
+ 
+ // VersionOps describes printing version string.
+--- kubectx-0.9.4.orig/cmd/kubens/version.go
++++ kubectx-0.9.4/cmd/kubens/version.go
+@@ -8,7 +8,7 @@ import (
+ )
+ 
+ var (
+-	version = "v0.0.0+unknown" // populated by goreleaser
++	version = "0.9.4" // populated by goreleaser
+ )
+ 
+ // VersionOps describes printing version string.

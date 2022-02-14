@@ -1,0 +1,16 @@
+Source: kubectx
+Section: admin
+Priority: optional
+Maintainer: Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>
+Build-Depends: debhelper-compat (= 13), dh-golang, golang-go (>= 1.17)
+Standards-Version: 4.6.0
+Homepage: https://github.com/ahmetb/kubectx
+#Vcs-Browser: https://gitlab.com/kaisenlinux/packages/kubectx
+#Vcs-Git: https://gitlab.com/kaisenlinux/packages/kubectx.git
+Rules-Requires-Root: no
+XS-Go-Import-Path: github.com/ahmetb/kubectx
+
+Package: kubectx
+Architecture: amd64 arm64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Faster way to switch between clusters and namespaces in kubectl
