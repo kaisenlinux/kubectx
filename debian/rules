@@ -1,10 +1,12 @@
 #!/usr/bin/make -f
 
-export GOPATH=$(CURDIR)/obj-x86_64-linux-gnu
-export DEB_BUILD_OPTIONS=nocheck
+export GOPATH=$(CURDIR)/_build
 
 %:
-	dh $@ --buildsystem=golang
+	dh $@ --buildsystem=golang --builddirectory=_build
+
+override_dh_auto_clean:
+	rm -rf $(CURDIR)/_build $(CURDIR)/obj-x86_64-linux-gnu
 
 override_dh_auto_build:
 	go get ./...
@@ -13,10 +15,9 @@ override_dh_auto_test:
 	go test ./...
 
 override_dh_auto_install:
-	dh_auto_install -- --no-source
-	rm debian/kubectx/usr/bin/jwt
-	mkdir -p debian/kubectx/usr/share/bash-completion/completions debian/kubectx/usr/share/zsh/vendor-completions
+	install -p -m 0755 $(CURDIR)/kubectx $(CURDIR)/debian/kubectx/usr/bin
+	install -p -m 0755 $(CURDIR)/kubens $(CURDIR)/debian/kubectx/usr/bin
 	cp completion/kubectx.bash debian/kubectx/usr/share/bash-completion/completions/kubectx
-	cp completion/kubectx.zsh debian/kubectx/usr/share/zsh/vendor-completions/_kubectx
+	cp completion/_kubectx.zsh debian/kubectx/usr/share/zsh/vendor-completions/_kubectx
 	cp completion/kubens.bash debian/kubectx/usr/share/bash-completion/completions/kubens
-	cp completion/kubens.zsh debian/kubectx/usr/share/zsh/vendor-completions/_kubens
+	cp completion/_kubens.zsh debian/kubectx/usr/share/zsh/vendor-completions/_kubens

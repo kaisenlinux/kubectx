@@ -1,3 +1,9 @@
+kubectx (0.9.5-1kaisen) kaisen-packages; urgency=medium
+
+  * Import the 0.9.5 version
+
+ -- Kevin Chevreuil - Kaisen <kaisen@kaisenlinux.org>  Sun, 23 Jul 2023 00:44:27 +0100
+
 kubectx (0.9.4-1kaisen) kaisen-packages; urgency=medium
 
   * First packaging for Kaisen Linux
